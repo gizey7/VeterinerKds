@@ -1,0 +1,285 @@
+html{
+  scroll-behavior: smooth;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+body{
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+
+img{
+  width: 100%;
+}
+
+section{
+  padding: 100px 0;
+  background: rgb(16, 32, 32);
+}
+
+.section_title{
+  margin-bottom: 20px;
+}
+
+.section_title h2{
+  position: relative;
+  text-align: center;
+  color: #fff;
+  font-size: 20px;
+  transition: all.5s ease-in-out;
+}
+.section_title h2:hover{
+  background-color: rgb(43, 184, 172);
+}
+
+/*HEADER */
+
+header{
+  background: rgba(46, 36, 36); 
+  border-bottom: 1px solid rgba(238, 238, 238, 0.801);
+  position: fixed;
+  width: 100%;
+  z-index: 5;
+}
+
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  width: 90%;
+  padding: 10px 0;
+}
+.nav_links{
+  display: flex;
+}
+
+.nav_links li a{
+  margin-left: 9px;
+  color: #fff;
+  padding: 5px 5px;
+  border-radius: 10px;
+  transition: all .5s ease-in-out;
+}
+.nav_links li a:hover{
+  background: rgb(43, 184, 172);
+}
+
+.logo h2 a{
+  color:#fff;
+  text-transform: uppercase;
+}
+
+/* ANASAYFA */ 
+
+.inner_anasayfa{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  color: #fff;
+}
+.child_anasayfa{
+  flex-basis: 37%;
+}
+.child_anasayfa h1{
+  margin-left: 150px ;
+  font-size: 70px;
+  color: rgb(43, 184, 172);
+  text-align: right;
+}
+/*--Sahip--*/
+
+.innersahipBilgileri {
+  width: 80%;
+  color: #fafafa;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto; /* Merkezlemek için */
+}
+.innersahipBilgileri_child {
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+#sahipTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+#sahipTable th,
+#sahipTable td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid rgb(86, 113, 126);
+}
+
+#sahipTable th {
+  background-color: rgb(96, 108, 114);
+  color: #ffffff; /* Başlık metni rengi */
+}
+
+/*--Sahip Bilgileri*/
+.innerhayvanBilgileri {
+  width: 80%;
+  color: #fafafa;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto; /* Merkezlemek için */
+}
+.innerhayvanBilgileri_child {
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+#hayvanTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+#hayvanTable th,
+#hayvanTable td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid rgb(86, 113, 126);
+}
+
+#hayvanTable th {
+  background-color: rgb(96, 108, 114);
+  color: #ffffff; /* Başlık metni rengi */
+}
+
+/* Canvas Stilleri */
+canvas {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Harita container'ı */
+#veterinerHaritaDiv {
+  width: 100%;
+  height: 400px; /* veya istediğiniz yükseklik */
+}
+
+/* Harita üzerindeki marker'lar */
+.ol-overlaycontainer-stopevent .ol-popup {
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  border: 2px solid #333;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Tıklanan marker'ın stilini özelleştirme */
+.ol-popup:after,
+.ol-popup:before {
+  border: 0;
+}
+
+/* Harita container'ı */
+#petshopHaritaDiv {
+  width: 100%;
+  height: 400px; /* veya istediğiniz yükseklik */
+}
+
+/* Harita üzerindeki marker'lar */
+#petshopHaritaDiv .ol-overlaycontainer-stopevent .ol-popup {
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  border: 2px solid #333;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Tıklanan marker'ın stilini özelleştirme */
+#petshopHaritaDiv .ol-popup:after,
+#petshopHaritaDiv .ol-popup:before {
+  border: 0;
+}
+
+
+/* Harita container'ı */
+#otoparkHaritaDiv {
+  width: 100%;
+  height: 400px; /* veya istediğiniz yükseklik */
+}
+
+/* Harita üzerindeki marker'lar */
+#otoparkHaritaDiv .ol-overlaycontainer-stopevent .ol-popup {
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  border: 2px solid #333;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Tıklanan marker'ın stilini özelleştirme */
+#otoparkHaritaDiv .ol-popup:after,
+#otoparkHaritaDiv .ol-popup:before {
+  border: 0;
+}
+
+/* Harita container'ı */
+#gemlikHaritaDiv {
+  width: 100%;
+  height: 400px; /* veya istediğiniz yükseklik */
+}
+
+/* Harita üzerindeki marker'lar */
+#gemlikHaritaDiv .ol-overlaycontainer-stopevent .ol-popup {
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  border: 2px solid #333;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Tıklanan marker'ın stilini özelleştirme */
+#gemlikHaritaDiv .ol-popup:after,
+#gemlikHaritaDiv .ol-popup:before {
+  border: 0;
+}
+
+#gemlikHaritasi .innergemlikHaritasi p {
+  color: #e79418e0; /* Rengi değiştirmek için istediğiniz rengi ekleyin */
+}
+
+/* Harita container'ı */
+#yerHaritaDiv {
+  width: 100%;
+  height: 400px; /* veya istediğiniz yükseklik */
+}
+
+/* Harita üzerindeki marker'lar */
+#yerHaritaDiv .ol-overlaycontainer-stopevent .ol-popup {
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  border: 2px solid #333;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Tıklanan marker'ın stilini özelleştirme */
+#yerHaritaDiv .ol-popup:after,
+#yerHaritaDiv .ol-popup:before {
+  border: 0;
+}
+

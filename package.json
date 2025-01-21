@@ -1,0 +1,19 @@
+{
+  "name": "veterinerk",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chart.js": "^4.4.1",
+    "express": "^4.18.2",
+    "leaflet": "^1.9.4",
+    "mysql": "^2.18.1",
+    "ol": "^8.2.0"
+  },
+  "description": ""
+}

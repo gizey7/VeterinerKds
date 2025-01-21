@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veteriner Kliniği</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300&family=Roboto:wght@100&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://www.iconsdb.com/icons/preview/soylent-red/pin-8-xxl.png" type="image/png">
+  <link rel="icon" href="https://www.iconsdb.com/icons/preview/royal-blue/pin-8-xxl.png" type="image/png">
+  <link rel="icon" href="https://www.iconsdb.com/icons/preview/guacamole-green/pin-8-xxl.png" type="image/png">
+  <link rel="icon" href="https://www.iconsdb.com/icons/preview/orange/pin-8-xxl.png" type="image/png">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <style>
+    #map {
+        height: 100vh;
+    }
+</style>
+  
+
+</head>
+<body>
+
+   <header>
+    <div class="navbar">
+        <div class="logo">
+            <h2><a href="#">Kendine Has Veteriner</a></h2>
+        </div>
+        <ul class="nav_links">
+            <li><a href="#anasayfa">Anasayfa</a></li>
+            <li><a href="#sahipBilgileri">Sahip Bilgileri</a></li>
+            <li><a href="#hayvanBilgileri">Hayvan Bilgileri</a></li>
+            <li><a href="#veterinerHaritasi">Veteriner Haritası</a></li>
+            <li><a href="#petshopHaritasi">Petshop Haritası</a></li>
+            <li><a href="#otoparkHaritasi">Otopark Haritası</a></li>
+            <li><a href="#gemlikHaritasi">Gemlik Haritası</a></li>
+            <li><a href="#yerHaritasi">Yer Haritası</a></li>
+        </ul>
+    </div>
+</header>
+<!--ANASAYFA-->
+<section id="anasayfa">
+    <div class="inner_anasayfa">
+        <div class="child_anasayfa">
+            <h1>YENİ KLİNİK YERİ Mİ SEÇMEN GEREKİYOR?</h1>
+            
+        </div>
+        <div class="child_anasayfa">
+            <img src="imgr.png" alt="">
+         </div>
+    </div>
+</section>
+
+<!--Sahip Bilgileri-->
+<section id="sahipBilgileri">
+    <div class="innersahipBilgileri">
+        <div class="innersahipBilgileri_child">
+            <table id="sahipTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Ad</th>
+                        <th>Soyad</th>
+                        <th>Mahalle</th>
+                    </tr>
+                </thead>
+                <tbody id="sahipTableBody">
+                    <!-- Veriler buraya eklenecek -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+</section>
+
+<!--grafik-->
+<section>
+    <canvas id="mahalleGrafikCanvas" width="800" height="600"></canvas>
+</section>
+
+<!--hayvan bilgileri-->
+
+<section id="hayvanBilgileri">
+    <div class="innerhayvanBilgileri">
+        <div class="innerhayvanBilgileri_child">
+            <table id="hayvanTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Ad</th>
+                        <th>Tür</th>
+                        <th>Sahip ID</th>
+                        <th>Sahip Ad</th>
+                        <th>Sahip Soyad</th>
+                    </tr>
+                </thead>
+                <tbody id="hayvanTableBody">
+                    <!-- Veriler buraya eklenecek -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
+
+<!--Grafik-->
+<section>
+    <canvas id="hayvanTuruGrafikCanvas" width="700" height="600"></canvas>
+</section>
+
+<section>
+    <!-- Diğer içerikler -->
+    <canvas id="sahipHayvanGrafikCanvas" width="700" height="600"></canvas>
+</section>
+
+
+
+
+<section id="veterinerHaritasi">
+    <div class="innerveterinerHaritasi">
+        <div class="innerveterinerHaritasi_child" id="veterinerHaritaDiv"></div>
+        
+    </div>
+</section>
+
+
+<section id="petshopHaritasi">
+    <div class="innerpetshopHaritasi">
+        <div class="innerpetshopHaritasi_child" id="petshopHaritaDiv"></div>
+    </div>
+</section>
+
+
+<section id="otoparkHaritasi">
+    <div class="innerotoparkHaritasi">
+        <div class="innerotoparkHaritasi_child" id='otoparkHaritaDiv'></div>
+    </div>
+</section>
+
+<section id="gemlikHaritasi">
+    <div class="innergemlikHaritasi">
+        <div class="innergemlikHaritasi_child" id='gemlikHaritaDiv'></div>
+        <p>Gri:Hiç veri bulunmayan mahalleler</p>
+        <p>Mavi:Sadece veteriner,petshop veya otopark olan mahalleler</p>
+        <p>Yeşil:Hayvan sayısı 1-5 arasında olan mahalleler</p>
+        <p>Kırmızı: Hayvan Sayısı 5 ve üzeri olan mahalleler</p>
+    </div>
+</section>
+
+<section id="yerHaritasi">
+    <div class="inneryerHaritasi">
+        <div class="inneryerHaritasi_child" id='yerHaritaDiv'></div>
+    </div>
+</section>
+
+
+<footer>
+    <p>&copy; 2023 Veteriner Kliniği</p>
+  </footer>
+
+ <script>
+    
+document.addEventListener('DOMContentLoaded', function () {
+    // Sayfa yüklendiğinde /api/sahip-bilgileri endpoint'inden veri çek ve dairesel grafik oluştur
+    getSahipMahalleDataAndCreateChart();
+});
+function getSahipMahalleDataAndCreateChart() {
+    fetch('/api/sahip-bilgileri')
+        .then(response => response.json())
+        .then(data => {
+            // Verileri işleyin ve dairesel grafik oluştur
+            createMahalleChart(data);
+        })
+        .catch(error => console.error('Veri çekme hatası:', error));
+}
+
+function createMahalleChart(data) {
+    const mahalleGrafikCanvas = document.getElementById('mahalleGrafikCanvas').getContext('2d');
+
+    // Mahalle verilerini çıkar
+    const mahalleData = data.map(sahip => sahip.mahalle_ad);
+
+    // Mahalle isimlerini ve sayılarını say
+    const mahalleSayilari = mahalleData.reduce((acc, mahalle) => {
+        acc[mahalle] = (acc[mahalle] || 0) + 1;
+        return acc;
+    }, {});
+
+    // Grafik için verileri oluştur
+    const mahalleLabels = Object.keys(mahalleSayilari);
+    const mahalleDataValues = Object.values(mahalleSayilari);
+
+    const mahalleChart = new Chart(mahalleGrafikCanvas, {
+        type: 'doughnut',
+        data: {
+            labels: mahalleLabels,
+            datasets: [{
+                data: mahalleDataValues,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.8)',
+                    'rgba(54, 162, 235, 0.8)',
+                    'rgba(255, 206, 86, 0.8)',
+                    'rgba(75, 192, 192, 0.8)',
+                    'rgba(153, 102, 255, 0.8)',
+                    'rgba(255, 159, 64, 0.8)',
+                ],
+            }],
+        },
+    });
+}
+
+
+
+createHayvanTuruGrafik();
+
+document.getElementById('sahipBilgileri').addEventListener('click', function () {
+    // Sahip Bilgileri bölümüne tıklandığında /api/sahip-bilgileri endpoint'inden veri çek ve dairesel grafik oluştur
+    getSahipMahalleDataAndCreateChart();
+});
+
+    document.addEventListener('DOMContentLoaded', function () {
+    // Sayfa yüklendiğinde /api/hayvan-bilgileri endpoint'inden veri çek ve grafik oluştur
+    getHayvanBilgileriAndCreateGrafik();
+});
+
+document.getElementById('hayvanBilgileri').addEventListener('click', function () {
+    // Hayvan Bilgileri bölümüne tıklandığında /api/hayvan-bilgileri endpoint'inden veri çek ve grafik oluştur
+    getHayvanBilgileriAndCreateGrafik();
+   
+});
+ // Grafik için verileri oluştur
+ const dummyData = {
+        hayvanTurAdlari: ['Kedi', 'Köpek', 'Kuş', 'Kaplumbağa', 'Tavşan'],
+        hayvanTurSayilari: [13, 18, 7, 2, 1]
+    };
+    createHayvanTuruGrafik(dummyData);
+
+    document.addEventListener('DOMContentLoaded', function () {
+    // Sayfa yüklendiğinde hayvan sayısı ve sahip-hayvan sayıları verilerini çek
+    getHayvanSayilari();
+    getSahipHayvanSayilari();
+});
+
+    // Sayfa yüklendiğinde sahip bilgilerini getir
+    getSahipBilgileri();
+
+      // Sahip Bilgileri sayfasına tıklandığında sahip bilgilerini getir
+    document.getElementById('sahipBilgileri').addEventListener('click', function () {
+     getSahipBilgileri();
+      });
+
+      
+    // Sayfa yüklendiğinde hayvan bilgilerini getir
+    getHayvanBilgileri();
+
+       // Hayvan Bilgileri sayfasına tıklandığında hayvan bilgilerini getir
+       document.getElementById('hayvanBilgileri').addEventListener('click', function () {
+        getHayvanBilgileri();
+      });
+   
+
+    function getSahipBilgileri() {
+      // JavaScript ile sunucudan veri çekme
+      fetch('/api/sahip-bilgileri')
+        .then(response => response.json())
+        .then(data => {
+          // Verileri işleyin ve HTML tabloya ekleyin
+          const sahipTable = document.getElementById('sahipTable');
+          const tbody = sahipTable.querySelector('tbody');
+
+          // Tabloyu temizle
+          tbody.innerHTML = '';
+
+          // Verileri tabloya ekle
+          data.forEach(sahip => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                  <td>${sahip.sahip_id}</td>
+                  <td>${sahip.sahip_ad}</td>
+                  <td>${sahip.sahip_soyad}</td>
+                  <td>${sahip.mahalle_ad}</td>
+                `;
+            tbody.appendChild(row);
+          });
+        })
+        .catch(error => console.error('Veri çekme hatası:', error));
+    }
+    function getHayvanBilgileri() {
+      // JavaScript ile sunucudan veri çekme
+      fetch('/api/hayvan-bilgileri')
+        .then(response => response.json())
+        .then(data => {
+          // Verileri işleyin ve HTML tabloya ekleyin
+          const hayvanTable = document.getElementById('hayvanTable');
+          const tbody = hayvanTable.querySelector('tbody');
+          // Tabloyu temizle
+          tbody.innerHTML = '';
+
+          // Verileri tabloya ekle
+          data.forEach(hayvan => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                  <td>${hayvan.hayvan_id}</td>
+                  <td>${hayvan.hayvan_ad}</td>
+                  <td>${hayvan.hayvan_tur}</td>
+                  <td>${hayvan.sahip_id}</td>
+                  <td>${hayvan.sahip_ad}</td>
+                  <td>${hayvan.sahip_soyad}</td>
+                `;
+            tbody.appendChild(row);
+          });
+        })
+        .catch(error => console.error('Veri çekme hatası:', error));
+    }
+    function getHayvanBilgileriAndCreateGrafik() {
+    fetch('/api/hayvan-bilgileri')
+        .then(response => response.json())
+        .then(data => {
+            // Grafik için verileri oluştur
+            createHayvanTuruGrafik(data);
+        })
+        .catch(error => console.error('Veri çekme hatası:', error));
+}
+function getSahipHayvanSayilari() {
+    // Sunucudan sahip-hayvan sayıları verilerini çek
+    fetch('/api/sahip-hayvan-sayilari')
+        .then(response => response.json())
+        .then(data => {
+            // Pasta grafiğini oluştur
+            createSahipHayvanGrafik(data);
+        })
+        .catch(error => console.error('Veri çekme hatası:', error));
+}
+
+function createSahipHayvanGrafik(veriler) {
+    const sahipHayvanGrafikCanvas = document.getElementById('sahipHayvanGrafikCanvas').getContext('2d');
+
+    // Sahip-hayvan verilerini çıkar
+    const sahipHayvanData = veriler.map(sahip => sahip.hayvan_sayisi);
+
+    // Sahip-hayvan sayılarını ve isimlerini içeren verileri oluştur
+    const sahipHayvanLabels = veriler.map(sahip => sahip.sahip_ad);
+    const sahipHayvanDataValues = sahipHayvanData;
+
+    const sahipHayvanChart = new Chart(sahipHayvanGrafikCanvas, {
+        type: 'doughnut',
+        data: {
+            labels: sahipHayvanLabels,
+            datasets: [{
+                data: sahipHayvanDataValues,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.8)',
+                    'rgba(54, 162, 235, 0.8)',
+                    'rgba(255, 206, 86, 0.8)',
+                    'rgba(75, 192, 192, 0.8)',
+                    'rgba(153, 102, 255, 0.8)',
+                    'rgba(255, 159, 64, 0.8)',
+                ],
+            }],
+        },
+    });
+}
+
+
+
+
+document.getElementById('veterinerHarita').addEventListener('click', function () {
+    // Sahip Bilgileri bölümüne tıklandığında /api/sahip-bilgileri endpoint'inden veri çek ve dairesel grafik oluştur
+    getVeterinerHarita();
+});
+
+
+document.getElementById('petshopHarita').addEventListener('click', function () {
+    // Sahip Bilgileri bölümüne tıklandığında /api/sahip-bilgileri endpoint'inden veri çek ve dairesel grafik oluştur
+    getPetshopHarita();
+});
+
+document.getElementById('gemlikHarita').addEventListener('click', function () {
+    // Sahip Bilgileri bölümüne tıklandığında /api/sahip-bilgileri endpoint'inden veri çek ve dairesel grafik oluştur
+    getGemlikHarita();
+});
+
+document.getElementById('yerHarita').addEventListener('click', function () {
+    // Sahip Bilgileri bölümüne tıklandığında /api/sahip-bilgileri endpoint'inden veri çek ve dairesel grafik oluştur
+    getYerHarita();
+});
+
+
+</script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+     <script src="client.js"></script>
+   
+</body>
+</html>
+
